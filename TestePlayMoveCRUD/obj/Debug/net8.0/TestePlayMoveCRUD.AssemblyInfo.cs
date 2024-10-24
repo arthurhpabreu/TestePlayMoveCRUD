@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TestePlayMoveCRUD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04a164860e100206af1e7eca3cfebc198ea10231")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3275c374137cd722d20b4219098c51090274f318")]
 [assembly: System.Reflection.AssemblyProductAttribute("TestePlayMoveCRUD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TestePlayMoveCRUD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
