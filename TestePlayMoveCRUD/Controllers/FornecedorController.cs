@@ -99,15 +99,15 @@ namespace TestePlayMoveCRUD.Controllers
         [Route("{id:guid}")]
         public IActionResult UpdateFornecedor(Guid id, UpdateFornecedorDto updateFornecedorDto)
         {
+            // Verifica a validade dos campos
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
                 var fornecedor = dbContext.Fornecedores.Find(id);
-
-                // Verifica a validade dos campos
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
 
                 // Mapeia as propriedades do DTO para a entidade
                 _mapper.Map(updateFornecedorDto, fornecedor);
