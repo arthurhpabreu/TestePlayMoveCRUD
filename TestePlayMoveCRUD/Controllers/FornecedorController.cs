@@ -70,6 +70,7 @@ namespace TestePlayMoveCRUD.Controllers
         [HttpPost]
         public IActionResult AddFornecedor(AddFornecedorDto addFornecedorDto)
         {
+            // Verifica a validade dos campos
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
