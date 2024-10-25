@@ -80,6 +80,7 @@ namespace TestePlayMoveCRUD.Controllers
             {
                 // Mapeia as propriedades do DTO para a entidade
                 var fornecedor = _mapper.Map<Fornecedor>(addFornecedorDto);
+
                 dbContext.Fornecedores.Add(fornecedor);
                 dbContext.SaveChanges();
                 return Ok(fornecedor);
@@ -113,7 +114,6 @@ namespace TestePlayMoveCRUD.Controllers
                 _mapper.Map(updateFornecedorDto, fornecedor);
 
                 dbContext.SaveChanges();
-
                 return Ok(fornecedor);
 
             }
