@@ -70,19 +70,9 @@ namespace TestePlayMoveCRUD.Controllers
         [HttpPost]
         public IActionResult AddFornecedor(AddFornecedorDto addFornecedorDto)
         {
-            if (addFornecedorDto == null)
+            if (!ModelState.IsValid)
             {
-                return BadRequest("O DTO de fornecedor não pode ser nulo.");
-            }
-
-            // Verifica se alguma propriedade (exceto Descricao) é string.Empty ou espaço em branco
-            foreach (var property in addFornecedorDto.GetType().GetProperties())
-            {
-                var value = property.GetValue(addFornecedorDto) as string;
-                if (property.Name != nameof(AddFornecedorDto.Descricao) && string.IsNullOrWhiteSpace(value))
-                {
-                    return BadRequest($"A propriedade {property.Name} não pode estar vazia.");
-                }
+                return BadRequest(ModelState);
             }
 
             try
@@ -112,20 +102,10 @@ namespace TestePlayMoveCRUD.Controllers
             {
                 var fornecedor = dbContext.Fornecedores.Find(id);
 
-                // Verifica se o fornecedor foi encontrado
-                if (fornecedor == null)
+                // Verifica a validade dos campos
+                if (!ModelState.IsValid)
                 {
-                    return NotFound(); // Retorna 404 Not Found se não encontrar o fornecedor
-                }
-
-                // Verifica se alguma propriedade (exceto Descricao) é string.Empty ou espaço em branco 
-                foreach (var property in updateFornecedorDto.GetType().GetProperties())
-                {
-                    var value = property.GetValue(updateFornecedorDto) as string;
-                    if (property.Name != nameof(UpdateFornecedorDto.Descricao) && string.IsNullOrWhiteSpace(value))
-                    {
-                        return BadRequest($"A propriedade {property.Name} não pode estar vazia.");
-                    }
+                    return BadRequest(ModelState);
                 }
 
                 // Mapeia as propriedades do DTO para a entidade
