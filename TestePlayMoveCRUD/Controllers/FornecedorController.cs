@@ -110,6 +110,12 @@ namespace TestePlayMoveCRUD.Controllers
             {
                 var fornecedor = dbContext.Fornecedores.Find(id);
 
+                // Verifica se o fornecedor foi encontrado
+                if (fornecedor == null)
+                {
+                    return NotFound(); // Retorna 404 Not Found se não encontrar o fornecedor
+                }
+
                 // Mapeia as propriedades do DTO para a entidade
                 _mapper.Map(updateFornecedorDto, fornecedor);
 
