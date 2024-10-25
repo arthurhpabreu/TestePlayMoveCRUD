@@ -10,12 +10,12 @@ namespace TestePlayMoveCRUD.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FornecedorController : ControllerBase
+    public class FornecedoresController : ControllerBase
     {
         private readonly ApplicationDbContext dbContext;
         private readonly IMapper _mapper;
 
-        public FornecedorController(ApplicationDbContext dbContext, IMapper mapper)
+        public FornecedoresController(ApplicationDbContext dbContext, IMapper mapper)
         {
             this.dbContext = dbContext;
             _mapper = mapper;
